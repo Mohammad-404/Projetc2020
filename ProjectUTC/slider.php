@@ -12,6 +12,7 @@
         move_uploaded_file($tmp_image,$path.$image1);
 
         $x->AddSlider($text1,$text2,$image1);
+        echo '<meta http-equiv="refresh" content="0">';
     }
     include('include/header_admin.php');
 ?>

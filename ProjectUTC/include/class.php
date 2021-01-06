@@ -133,6 +133,46 @@
 			return $result;
 		}
 
+		function contact($email,$message){
+			$query  = "insert into contactus(email , msg) values('$email','$message')";
+			$conn   = $this->con();
+			$result = $conn->query($query);
+		}
+
+		function viewContact(){
+			$query  = "select * from contactus";
+			$conn   = $this->con();
+			$result = $conn->query($query);
+			return $result;
+		}
+
+		function deletecontact($id){
+			$query  = "delete from contactus where id = $id ";
+			$conn   = $this->con();
+			$result = $conn->query($query);
+			return $result;
+		}
+
+		function viewcustomer($id){
+			$query  = "select * from customer where cust_id = '$id' ";
+			$conn   = $this->con();
+			$result = $conn->query($query);
+			return $result;
+		}
+
+		function updateprofileuser($id,$name,$email,$phone,$address,$password){
+				$query = "update customer set 
+										  cust_name   		= '$name',
+                                  		  cust_email 	 	= '$email',
+                                 		  cust_mobile	 	= '$phone',
+                                 		  cust_address		= '$address',
+                                 		  cust_password		= '$password'
+                where cat_id = '$id'
+	            ";
+				$conn   = $this->con();
+				$result = $conn->query($query);
+		}
+
 		
 		
 		

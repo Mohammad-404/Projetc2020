@@ -29,11 +29,12 @@
 <html lang="en">
 <head>
 <title>Login</title>
+
 <?php
 	include('include/header.php');
 ?>
 
-<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
+<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/hahah.jpg');">
 <h2 class="ltext-105 cl0 txt-center">
 Login User
 </h2>
@@ -87,7 +88,7 @@ Login
 Address
 </span>
 <p class="stext-115 cl6 size-213 p-t-18">
-Coza Store Center 8th floor, 379 Hudson St, New York, NY 10018 US
+AMMAN, ABDALLAH GOSHEH STREET, RA'ED KHALAF COMPLEX.
 </p>
 </div>
 </div>
@@ -100,7 +101,7 @@ Coza Store Center 8th floor, 379 Hudson St, New York, NY 10018 US
 Lets Talk
 </span>
 <p class="stext-115 cl1 size-213 p-t-18">
-+1 800 1236879
+(+962) 79 - 8601 - 716
 </p>
 </div>
 </div>
@@ -113,7 +114,7 @@ Lets Talk
 Sale Support
 </span>
 <p class="stext-115 cl1 size-213 p-t-18">
-<a href="https://preview.colorlib.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0f6c60617b6e6c7b4f6a776e627f636a216c6062">[email&#160;protected]</a>
+<a href="https://preview.colorlib.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0f6c60617b6e6c7b4f6a776e627f636a216c6062">[sales@azkahd.com]</a>
 </p>
 </div>
 </div>

@@ -11,7 +11,7 @@
 		$_SESSION['pro_name'] = $_POST['search_product'];
 	    $name_product = $_SESSION['pro_name'];//$_POST['search_product'];
 	    $x->SearchAllProduct($name_product);  
-		header("Location:Product_Search.php"); 
+		header("location:Product_Search.php"); 
 	}
 	
 	?>
@@ -113,13 +113,13 @@
 <div class="container">
 <div class="p-b-10">
 <h3 class="ltext-103 cl5">
-Product Overview
+Menu Overview
 </h3>
 </div>
 <div class="flex-w flex-sb-m p-b-52">
 <div class="flex-w flex-l-m filter-tope-group m-tb-10">
 <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
-All Products
+All Desserts / Products
 </button>
 </div>
 <div class="flex-w flex-c-m m-tb-10">
@@ -161,9 +161,9 @@ Search
 			</div>
 			<div class='block2-txt flex-w flex-t p-t-14'>
 			<div class='block2-txt-child1 flex-col-l'>
-			<a href='product-detail.html' class='stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6'>
+			<div class='stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6'>
 			{$row['pro_name']}
-			</a>
+			</div>
 			<span class='stext-105 cl3 pricesstyle'>
 			$".$row['pro_price']."
 			</span>

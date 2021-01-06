@@ -59,6 +59,12 @@ if (isset($_POST['sub'])) {
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
 
+    <style>
+        .isisi{
+            height: 150px;
+        }
+
+    </style>
 </head>
 
 <body class="animsition">
@@ -69,7 +75,7 @@ if (isset($_POST['sub'])) {
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="images/icon/logo.png" alt="CoolAdmin">
+                                <img src="images/icon/logo1.jpg" class="isisi" alt="CoolAdmin">
                             </a>
                         </div>
 

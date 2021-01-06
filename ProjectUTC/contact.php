@@ -3,14 +3,7 @@ include('include/header_admin.php');
 include('include/class.php');
 
     $x = new Admin();
-
-    if (isset($_POST['sub'])) {
-        $Email    = $_POST['admin_email'];
-        $Password = $_POST['admin_password'];
-        $fullname = $_POST['fullnames']; 
-        $x->CreateAdmin($admin_img,$Email,$Password,$fullname);
-    }
-
+    
 ?> 
 
 
@@ -22,37 +15,7 @@ include('include/class.php');
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card">
-                                    <div class="card-header">Contact Maneger</div>
-                                    <div class="card-body">
-                                        <div class="card-title">
-                                            <h3 class="text-center title-2">Contact</h3>
-                                        </div>
-                                        <hr>
-                                        <form action="contact.php" method="post" enctype="multipart/form-data">
-                                            <div class="form-group">
-                                                <label for="cc-payment" class="control-label mb-1">Address</label>
-                                                <input name="address" type="text" class="form-control">
-                                            </div>
-
-                                            <div class="form-group has-success">
-                                                <label for="cc-name" class="control-label mb-1">Phone</label>
-                                                <input name="phone" type="text" class="form-control cc-name valid" maxlength="10" size="10">
-                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="cc-number" class="control-label mb-1">Email Support</label>
-                                                <input name="email" type="email" class="form-control cc-number identified visa">
-                                                <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
-                                            </div>
-
-                                            <div>
-                                                <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block" name="sub">
-                                                    <i class="fas fa-save"></i>&nbsp;
-                                                    <span id="payment-button-amount">Save</span>
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                    <div class="card-header">Manege Contacts</div>
                                 </div>
                             </div>
                         </div>
@@ -66,40 +29,25 @@ include('include/class.php');
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Email</th>
-                                                <th>Password</th>
-                                                <th>Full Name</th>
-                                                <th>Images</th>
-                                                <th>Edit</th>
+                                                <th>Description</th>
                                                 <th>Delete</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                                $printer = $x->ReadAdmin();
+                                                $printer = $x->viewContact();
 
                                                 while ($row = $printer->fetch_assoc()) {
                                                     echo"<tr>";
-                                                         echo "<td>{$row['admin_id']}</td>";
+                                                         echo "<td>{$row['id']}</td>";
                                                         echo"<td>";
-                                                            echo $row['admin_email'];
+                                                            echo $row['email'];
                                                         echo"</td>";
                                                         echo"<td>";
-                                                            echo $row['admin_password'];
+                                                            echo $row['msg'];
                                                         echo"</td>";
-                                                        echo"<td>";
-                                                            echo $row['admin_fullname'];
-                                                        echo"</td>";
-
-                                                echo"<td>";
-                                                    echo "<img src=uploadimages/".$row['admin_image'].">";
-                                                echo"</td>";
-
-                                                        echo"<td> 
-                                                           <a href='edit_admin.php?id={$row['admin_id']}'class='btn btn-primary'>Edit</a>
-                                                         </td>";
-
-                                                        echo"<td> 
-                                                           <a href='delete_admin.php?id={$row['admin_id']}'class='btn btn-danger'>Delete</a>
+                                                       echo"<td> 
+                                                           <a href='delete_contact.php?id={$row['id']}'class='btn btn-danger'>Delete</a>
                                                          </td>";
                                                     echo"</tr>";
                                                 }

@@ -26,10 +26,28 @@
 <html lang="en">
 
 <head>
+	<style type="text/css">
+	.imgeslogo{
+
+		float: center;
+		width:100px;
+		height:100px;
+	}
+
+	.logoins{
+		color:black;
+	}
+</style>
+
 <title>Product Detail</title>
 <?php
 	include("include/header.php");
 ?>
+
+
+
+
+
 <div class="container py-5">
 <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
 <a href="index.php" class="stext-109 cl8 hov-cl1 trans-04">
@@ -93,11 +111,11 @@ Home
 		<div class='wrap-slick3-arrows flex-sb-m flex-w'></div>
 		<div class='slick3 gallery-lb'>
 	";
-	if($row['pro_image1'] != ""){
+	if($row['pro_image'] != ""){
 		echo"
 			<div class='item-slick3' data-thumb='../uploadimages/".$row['pro_image']."'>
 			<div class='wrap-pic-w pos-relative'>
-			 <img alt=IMG-BANNER src='../uploadimages/".$row['pro_image']."'>
+			 <img src='../uploadimages/".$row['pro_image']."'>
 			<a class='flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04' 
 			href='../uploadimages/".$row['pro_image']."'>
 			<i class='fa fa-expand'></i>
@@ -144,13 +162,13 @@ Home
 	<div class='col-md-6 col-lg-5 p-b-30'>
 	<div class='p-r-50 p-t-5 p-lr-0-lg'>
 	<h4 class='mtext-105 cl2 js-name-detail p-b-14'>
-	".$row['pro_name']."
+	Name :  ".$row['pro_name']."
 	</h4>
 	";	 
 	echo
 	"		
 	<span class='mtext-106 cl2'>
-	$".$row['pro_price']."
+	JOD ".$row['pro_price']." " .$row['des_price']."
 	</span>
 	";	
 	echo
@@ -159,6 +177,100 @@ Home
 	".$row['pro_desc']."
 	</p>
 	";
+
+/*********************************/
+
+
+
+	echo
+	"
+	<p class='stext-102 cl3 p-t-23'>
+	Net Crabs :  ".$row['net_crabs']."
+	</p>
+	";
+
+
+	echo
+	"
+	<p class='stext-102 cl3 p-t-23'>
+	Calories : ".$row['calories']."
+	</p>
+	";
+
+
+	echo
+	"
+	<p class='stext-102 cl3 p-t-23'>
+	Good_Fat :  ".$row['good_fat']."
+	</p>
+	";
+
+	echo
+	"
+	<p class='stext-102 cl3 p-t-23'>
+	Trans_Fat :  ".$row['trans_fat']."
+	</p>
+	";
+
+
+	echo
+	"
+	<p class='stext-102 cl3 p-t-23'>
+	Potassium :  ".$row['potassium']."
+	</p>
+	";
+
+
+	echo
+	"
+	<p class='stext-102 cl3 p-t-23'>
+	Added Suger  : ".$row['added_suger']."
+	</p>
+	";
+
+
+	echo
+	"
+	<p class='stext-102 cl3 p-t-23'>
+	Fibres :  ".$row['fibres']."
+	</p>
+	";
+
+
+	echo
+	"
+	<p class='stext-102 cl3 p-t-23'>
+	Protein :  ".$row['protein']."
+	</p>
+	";
+
+
+	echo
+	"
+	<p class='stext-102 cl3 p-t-23'>
+	Calcium :  ".$row['calcium']."
+	</p>
+	";
+
+
+	echo
+	"
+	<p class='stext-102 cl3 p-t-23'>
+	Irons :  ".$row['irons']."
+	</p>
+	";
+
+
+	echo
+	"
+	<p class='stext-102 cl3 p-t-23'>
+	Vitamin :  ".$row['vitamin']."
+	</p>
+	";
+
+
+
+
 	echo"
 	<div class='p-t-33'>
 	<div class='flex-w flex-r-m p-b-10'>
@@ -218,19 +330,15 @@ Home
 	</div>
 		<div class='flex-w flex-m p-l-100 p-t-40 respon7'>
 		<div class='flex-m bor9 p-r-10 m-r-11'>
-		<a href='#' class='fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100' data-tooltip='Add to Wishlist'>
-		<i class='zmdi zmdi-favorite'></i>
-		</a>
-		</div>
-		<a href='#' class='fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100' data-tooltip='Facebook'>
+		<a href='https://web.facebook.com/azkahealthydesserts' class='fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100' data-tooltip ='Facebook'>
 		<i class='fa fa-facebook'></i>
 		</a>
-		<a href='#' class='fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100' data-tooltip='Twitter'>
-		<i class='fa fa-twitter'></i>
+		</div>
+		<a href='https://www.instagram.com/azkahealthydesserts/' class='fs-18 cl7 hov-cl1 trans-04 m-r-16 tooltip100' data-tooltip ='Instagram'>
+		<i class='logoins fa fa-instagram'></i>
 		</a>
-		<a href='#' class='fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100' data-tooltip='Google Plus'>
-		<i class='fa fa-google-plus'></i>
-		</a>
+
+
 		</div>
 
 
@@ -246,6 +354,19 @@ Home
 </div>
 </div>
 
+<div class="container py-5">
+<div class="row">
+	<div class="d-flex justify-content-center col-lg-12">
+		<div><img class="imgeslogo mx-4" src="images/icons/1.png"></div>
+		<div><img class="imgeslogo mx-4" src="images/icons/2.png"></div>
+		<div><img class="imgeslogo mx-4" src="images/icons/3.png"></div>
+		<div><img class="imgeslogo mx-4" src="images/icons/4.png"></div>
+		<div><img class="imgeslogo mx-4" src="images/icons/5.png"></div>
+		<div><img class="imgeslogo mx-4" src="images/icons/6.png"></div>
+		<div><img class="imgeslogo mx-4" src="images/icons/7.png"></div>
+	</div>
+</div>
+</div>
 
 </div>
 </div>

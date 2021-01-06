@@ -25,18 +25,32 @@ include('include/db.php');
         $Description    = $_POST['pro_desc'];
         $pro_price      = $_POST['pro_price'];
         $pro_qty        = $_POST['pro_qty'];
-         
+
+        $des_price      = $_POST['des_price'];
+        $net_crabs      = $_POST['net_crabs'];
+        $calories       = $_POST['calories'];
+        $good_fat       = $_POST['good_fat'];
+        $trans_fat      = $_POST['trans_fat'];
+        $potassium      = $_POST['potassium'];
+        $added_suger    = $_POST['added_suger'];
+        $fibres         = $_POST['fibres'];
+        $protein        = $_POST['protein'];
+        $calcium        = $_POST['calcium'];
+        $irons          = $_POST['irons'];
+        $vitamin        = $_POST['vitamin'];
 
          $query_select = "select cat_id from cetegory where cat_name ='$cat_name'";
          $result       =  mysqli_query($conn,$query_select);
          $row          =  mysqli_fetch_assoc($result);
          $cat          =  $row['cat_id']; 
 
-
          
-   $query = "insert into products(pro_name,pro_desc,pro_price,qty,pro_image,pro_image1,pro_image2,cat_id)
-        values('$name','$Description','$pro_price','$pro_qty',
-        '$product_image','$product_image1','$product_image2','$cat')";
+   $query = "insert into products(pro_name,pro_desc,pro_price,qty,pro_image,pro_image1,pro_image2,
+    des_price,net_crabs,calories,good_fat,trans_fat,potassium,added_suger,fibres,protein,calcium,
+    irons,vitamin,cat_id)
+        values('$name','$Description','$pro_price','$pro_qty','$product_image','$product_image1','$product_image2',
+        '$des_price','$net_crabs','$calories','$good_fat','$trans_fat','$potassium','$added_suger','$fibres', 
+        '$protein','$calcium','$irons','$vitamin','$cat')";
 
         mysqli_query($conn,$query);
     //die;
@@ -78,12 +92,74 @@ include('include/header_admin.php');
                                                 <input name="pro_price"   type="text" class="form-control cc-name valid">
                                                 <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
                                             </div>
+
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Description Price</label>
+                                                <input name="des_price"   type="text" class="form-control cc-name valid">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
                                             
                                             <div class="form-group has-success">
                                                 <label for="cc-name" class="control-label mb-1">Product qty</label>
                                                 <input name="pro_qty"  type="text" class="form-control cc-name valid">
                                                 <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
-                                              </div>
+                                            </div>
+
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Net Crabs</label>
+                                                <input name="net_crabs"   type="text" class="form-control cc-name valid">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Calories</label>
+                                                <input name="calories"   type="text" class="form-control cc-name valid">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Good fat</label>
+                                                <input name="good_fat"   type="text" class="form-control cc-name valid">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Trans Fat</label>
+                                                <input name="trans_fat"   type="text" class="form-control cc-name valid">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Potassium</label>
+                                                <input name="potassium"   type="text" class="form-control cc-name valid">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Added Suger</label>
+                                                <input name="added_suger"   type="text" class="form-control cc-name valid">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Fibres</label>
+                                                <input name="fibres"   type="text" class="form-control cc-name valid">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Protein</label>
+                                                <input name="protein"   type="text" class="form-control cc-name valid">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Calcium</label>
+                                                <input name="calcium"   type="text" class="form-control cc-name valid">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Irons</label>
+                                                <input name="irons"   type="text" class="form-control cc-name valid">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Vitamin A</label>
+                                                <input name="vitamin"   type="text" class="form-control cc-name valid">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
                                                <div class="form-group">
                                                 <label for="cc-number" class="control-labelmb-1">Category
                                                 </label>
@@ -135,6 +211,22 @@ include('include/header_admin.php');
                                 <th>Name</th>
                                 <th>Description</th>
                                 <th>Price</th>
+                                <th>Description Price</th>
+
+
+                                <th>Net Crabs</th>
+                                <th>Calories</th>
+                                <th>Good Fat</th>
+                                <th>Trans Fat</th>
+                                <th>Potassium</th>
+                                <th>Added Suger</th>
+                                
+                                <th>Fibres</th>
+                                <th>Protein</th>
+                                <th>Calcium</th>
+                                <th>Irons</th>
+                                <th>Vitamin</th>
+
                                 <th>Image</th>
                                 <th>Image1</th>
                                 <th>Image2</th>
@@ -150,7 +242,10 @@ include('include/header_admin.php');
 
                                  $query = "
                                  select products.pro_id,products.pro_name,products.pro_desc,
-                                 products.pro_price,products.pro_image,products.pro_image1,products.pro_image2,products.qty,cetegory.cat_id,
+                                 products.pro_price,products.pro_image,products.pro_image1,products.pro_image2,products.qty,products.des_price,products.net_crabs,
+                                 products.calories,
+                                 products.good_fat,products.trans_fat,products.potassium,products.added_suger,
+                                 products.fibres,products.protein,products.calcium,products.irons,products.vitamin,cetegory.cat_id,
                                  cetegory.cat_name  from products inner join cetegory ON products.cat_id=cetegory.cat_id";
                                   
 
@@ -162,6 +257,22 @@ include('include/header_admin.php');
                                 echo "<td>{$row['pro_name']}</td>";
                                 echo "<td>{$row['pro_desc']}</td>";
                                 echo "<td>{$row['pro_price']}</td>";
+                                echo "<td>{$row['des_price']}</td>";
+
+                                echo "<td>{$row['net_crabs']}</td>";
+                                echo "<td>{$row['calories']}</td>";
+                                echo "<td>{$row['good_fat']}</td>";
+                                echo "<td>{$row['trans_fat']}</td>";
+                                echo "<td>{$row['potassium']}</td>";
+                                echo "<td>{$row['added_suger']}</td>";
+                                echo "<td>{$row['fibres']}</td>";
+                                echo "<td>{$row['protein']}</td>";
+
+                                echo "<td>{$row['calcium']}</td>";
+                                echo "<td>{$row['irons']}</td>";
+                                echo "<td>{$row['vitamin']}</td>";
+
+                                
                                 echo "<td><img src='uploadimages/{$row['pro_image']}' width='100' height='140'></td>";
                                 echo "<td><img src='uploadimages/{$row['pro_image1']}' width='100' height='140'></td>";
                                 echo "<td><img src='uploadimages/{$row['pro_image2']}' width='100' height='140'></td>";

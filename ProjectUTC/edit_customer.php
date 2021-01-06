@@ -10,8 +10,8 @@ if (isset($_POST['sub'])) {
     $query = "
         update customer set 
                cust_name     = '$c_n',
-               cust_email    = '$c_p',
-               cust_password = '$c_e',
+               cust_email    = '$c_e',
+               cust_password = '$c_p',
                cust_mobile   = '$c_m',
                cust_address  = '$c_a'
 

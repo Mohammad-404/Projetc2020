@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 29, 2020 at 03:14 AM
+-- Generation Time: Jan 06, 2021 at 06:56 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -40,7 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `admin_email`, `admin_password`, `admin_fullname`, `admin_image`) VALUES
-(52, 'm.almasri97.me@gmail.com', '1234', 'Mohammad Almasri', 'test.jpg');
+(52, 'admin@admin.com', 'admin', 'Admin', 'logo1.jpg');
 
 -- --------------------------------------------------------
 
@@ -55,13 +55,17 @@ CREATE TABLE `cetegory` (
   `cat_image` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `cetegory`
+-- Table structure for table `contactus`
 --
 
-INSERT INTO `cetegory` (`cat_id`, `cat_name`, `cat_desc`, `cat_image`) VALUES
-(20, 'Man', 'sadasd', 'banner-02.jpg'),
-(21, 'Women', 'Good', 'banner-01.jpg');
+CREATE TABLE `contactus` (
+  `id` int(3) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `msg` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -83,8 +87,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`cust_id`, `cust_name`, `cust_email`, `cust_password`, `cust_mobile`, `cust_address`) VALUES
-(4, 'Mohammad AL-Masri', 'm.almasri97.me@gmail.com', '1234', 795439152, 'Amman'),
-(31, 'Osama', 'osama@gmail.com', '1234', 795439152, 'amman');
+(4, 'samer Almasri', 'm.almasri97.me@gmail.com', '12345', 795439152, 'Zarqa/Street 16');
 
 -- --------------------------------------------------------
 
@@ -97,18 +100,6 @@ CREATE TABLE `orders` (
   `order_date` date NOT NULL,
   `cust_id` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`order_id`, `order_date`, `cust_id`) VALUES
-(76, '2020-12-25', 4),
-(77, '2020-12-25', 31),
-(78, '2020-12-26', 4),
-(79, '2020-12-27', 4),
-(80, '2020-12-28', 4),
-(81, '2020-12-29', 4);
 
 -- --------------------------------------------------------
 
@@ -124,13 +115,6 @@ CREATE TABLE `order_details` (
   `total` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `order_details`
---
-
-INSERT INTO `order_details` (`order_details_id`, `order_id`, `pro_id`, `qty`, `total`) VALUES
-(23, 81, 60, 1, 250);
-
 -- --------------------------------------------------------
 
 --
@@ -141,20 +125,25 @@ CREATE TABLE `products` (
   `pro_id` int(3) NOT NULL,
   `pro_name` varchar(50) NOT NULL,
   `pro_desc` varchar(50) NOT NULL,
-  `pro_price` int(50) NOT NULL,
+  `pro_price` varchar(50) NOT NULL,
   `qty` int(50) NOT NULL,
   `pro_image` varchar(255) NOT NULL,
   `pro_image1` text NOT NULL,
   `pro_image2` text NOT NULL,
+  `des_price` varchar(100) NOT NULL,
+  `net_crabs` varchar(100) NOT NULL,
+  `calories` varchar(100) NOT NULL,
+  `good_fat` varchar(100) NOT NULL,
+  `trans_fat` varchar(100) NOT NULL,
+  `potassium` varchar(100) NOT NULL,
+  `added_suger` varchar(100) NOT NULL,
+  `fibres` varchar(100) NOT NULL,
+  `protein` varchar(100) NOT NULL,
+  `calcium` varchar(100) NOT NULL,
+  `irons` varchar(100) NOT NULL,
+  `vitamin` varchar(100) NOT NULL,
   `cat_id` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `products`
---
-
-INSERT INTO `products` (`pro_id`, `pro_name`, `pro_desc`, `pro_price`, `qty`, `pro_image`, `pro_image1`, `pro_image2`, `cat_id`) VALUES
-(60, 'Clock 2020 ', 'Very Good', 250, 4, 'product-15.jpg', 'product-06.jpg', 'item-cart-03.jpg', 20);
 
 -- --------------------------------------------------------
 
@@ -168,14 +157,6 @@ CREATE TABLE `slider` (
   `texttow` varchar(250) NOT NULL,
   `image` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `slider`
---
-
-INSERT INTO `slider` (`id_slider`, `textone`, `texttow`, `image`) VALUES
-(4, ' Man Collection 2020', ' NEW SEASON', 'slide-01.jpg'),
-(5, ' موضة جديدة', ' 2020 منها متوفر ', 'slide-07.jpg');
 
 --
 -- Indexes for dumped tables
@@ -192,6 +173,12 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `cetegory`
   ADD PRIMARY KEY (`cat_id`);
+
+--
+-- Indexes for table `contactus`
+--
+ALTER TABLE `contactus`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `customer`
@@ -236,7 +223,7 @@ ALTER TABLE `slider`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `cetegory`
@@ -245,28 +232,34 @@ ALTER TABLE `cetegory`
   MODIFY `cat_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
+-- AUTO_INCREMENT for table `contactus`
+--
+ALTER TABLE `contactus`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `cust_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `cust_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `order_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `order_details_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `order_details_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `pro_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `pro_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `slider`

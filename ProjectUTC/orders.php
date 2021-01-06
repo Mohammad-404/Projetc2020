@@ -33,6 +33,7 @@
                                                 <th>Order ID</th>
                                                 <th>Customer ID</th>
                                                 <th>Product ID</th>
+                                                <th>Product Name</th>
                                                 <th>Quentity</th>
                                                 <th>Total</th>
                                                 <th>Delete</th>
@@ -55,13 +56,16 @@
                 echo $row['pro_id'];
                 echo"</td>";
                 echo"<td>";
+                echo $row['pro_name'];
+                echo"</td>";
+                echo"<td>";
                 echo $row['qty'];
                 echo"</td>";
                 echo"<td>";
                 echo "$".$row['total'];
                 echo"</td>";
                 echo"<td> 
-                        <a href='delete_order.php?id={$row['order_details_id']}'class='btn btn-danger'>Delete</a>
+                        <a href='delete_order.php?id={$row['order_details_id']}'class='btn btn-danger'>Done</a>
                     </td>";
                 echo"</tr>";
                 }

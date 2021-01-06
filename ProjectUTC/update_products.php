@@ -22,19 +22,45 @@ include('include/db.php');
         move_uploaded_file($tmp_name2,$path2.$product_image2);
 
 
-        $name=$_POST['pro_name'];
-        $Description=$_POST['pro_des'];
-        $pro_price=$_POST['pro_price'];
-        $pro_qty=$_POST['pro_qty'];
+        $name        = $_POST['pro_name'];
+        $Description = $_POST['pro_des'];
+        $pro_price   = $_POST['pro_price'];
+        $pro_qty     = $_POST['pro_qty'];
+
+        $des_price      = $_POST['des_price'];
+        $net_crabs      = $_POST['net_crabs'];
+        $calories       = $_POST['calories'];
+        $good_fat       = $_POST['good_fat'];
+        $trans_fat      = $_POST['trans_fat'];
+        $potassium      = $_POST['potassium'];
+        $added_suger    = $_POST['added_suger'];
+        $fibres         = $_POST['fibres'];
+        $protein        = $_POST['protein'];
+        $calcium        = $_POST['calcium'];
+        $irons          = $_POST['irons'];
+        $vitamin        = $_POST['vitamin'];
+
 
      $query = "update products set 
-                               pro_name            = '$name',
-                               pro_desc            = '$Description',
-                               pro_price           = '$pro_price',
-                               pro_image           = '$pro_image',
-                               pro_image1          = '$product_image1',
-                               pro_image2          = '$product_image2',
-                               qty                 = '$pro_qty'
+                                pro_name            = '$name',
+                                pro_desc            = '$Description',
+                                pro_price           = '$pro_price',
+                                pro_image           = '$pro_image',
+                                pro_image1          = '$product_image1',
+                                pro_image2          = '$product_image2',
+                                qty                 = '$pro_qty',
+                                des_price           = '$des_price',
+                                net_crabs           = '$net_crabs',
+                                calories            = '$calories',
+                                good_fat            = '$good_fat',
+                                trans_fat           = '$trans_fat',
+                                potassium           = '$potassium',
+                                added_suger         = '$added_suger',
+                                fibres              = '$fibres',
+                                protein             = '$protein',
+                                calcium             = '$calcium',
+                                irons               = '$irons',
+                                vitamin             = '$vitamin'               
              where pro_id = {$_GET['id']}";
         mysqli_query($conn,$query);
 
@@ -93,12 +119,76 @@ include('include/header_admin.php');
                                                 <input name="pro_price" value="<?php echo $adminSet['pro_price']; ?>" type="text" class="form-control cc-name valid">
                                                 <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
                                             </div>
-                                            
+
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Description Price</label>
+                                                <input name="des_price"   type="text" class="form-control cc-name valid" value="<?php echo $adminSet['des_price']; ?>">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+
                                             <div class="form-group has-success">
                                                 <label for="cc-name" class="control-label mb-1">Product qty</label>
                                                 <input name="pro_qty" value="<?php echo $adminSet['qty']; ?>" type="text" class="form-control cc-name valid">
                                                 <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
                                             </div>
+
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Net Crabs</label>
+                                                <input name="net_crabs"   type="text" class="form-control cc-name valid"  value="<?php echo $adminSet['net_crabs']; ?>" >
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Calories</label>
+                                                <input name="calories"   type="text" class="form-control cc-name valid" value="<?php echo $adminSet['calories']; ?>">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Good fat</label>
+                                                <input name="good_fat"   type="text" class="form-control cc-name valid" value="<?php echo $adminSet['good_fat']; ?>">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Trans Fat</label>
+                                                <input name="trans_fat"   type="text" class="form-control cc-name valid" value="<?php echo $adminSet['trans_fat']; ?>">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Potassium</label>
+                                                <input name="potassium"   type="text" class="form-control cc-name valid" value="<?php echo $adminSet['potassium']; ?>">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Added Suger</label>
+                                                <input name="added_suger"   type="text" class="form-control cc-name valid" value="<?php echo $adminSet['added_suger']; ?>">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Fibres</label>
+                                                <input name="fibres"   type="text" class="form-control cc-name valid" value="<?php echo $adminSet['fibres']; ?>">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Protein</label>
+                                                <input name="protein"   type="text" class="form-control cc-name valid" value="<?php echo $adminSet['protein']; ?>">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Calcium</label>
+                                                <input name="calcium"   type="text" class="form-control cc-name valid" value="<?php echo $adminSet['calcium']; ?>">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Irons</label>
+                                                <input name="irons"   type="text" class="form-control 
+                                                cc-name valid" value="<?php echo $adminSet['irons']; ?>">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Vitamin A</label>
+                                                <input name="vitamin"   type="text" class="form-control cc-name valid" value="<?php echo $adminSet['vitamin']; ?>">
+                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                            </div>
+
 
  
 

@@ -1,34 +1,30 @@
 <?php
-	include("include/db.php");
+include("../include/class.php");
 
-	if (isset($_POST['sub'])) {
-		$email 		= $_POST['email'];
-		$password   = $_POST['password'];
-		$address  	= $_POST['address'];
-		$phone 		= $_POST['phone'];
-		$name 		= $_POST['name'];
-		$query      = "insert into customer(cust_name,cust_email,cust_password,cust_mobile,cust_address)
-		values('$name','$email','$password','$phone','$address')";
-		
-		if($result = mysqli_query($conn,$query)) {	
-			header("location: login.php");
-		}else{
-			$error = "Email is already Exist";
-		}
-	}
+$x = new Admin();
+if (isset($_POST['sub'])) {
+	$email   = $_POST['email'];
+	$message = $_POST['msg'];
+	$result = $x->contact($email,$message);
+	$error = "Successfully Sent Message";
+}
+
+
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>SignUp</title>
+<title>Contact</title>
+
 <?php
 	include("include/header.php");
 ?>
 <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/hahah.jpg');">
 <h2 class="ltext-105 cl0 txt-center">
-SignUp User
+Contact US
 </h2>
 </section>
 
@@ -38,56 +34,25 @@ SignUp User
 <div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
 <form action="" method="post">
 <h4 class="mtext-105 cl2 txt-center p-b-30">
-SignUp
+Send Us A Message
 </h4>
-
-
 <?php
 	if (isset($error)) {
 		echo"
-		<div class='alert alert-danger' role='alert'>
+		<div class='alert alert-primary' role='alert'>
 		  ".$error."
 		</div>
 		";	
 	}
 ?>
-
 <div class="bor8 m-b-20 how-pos4-parent">
 <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="email" placeholder="Your Email Address">
-<i class="fa fa-envelope how-pos4 pointer-none iconsedit" aria-hidden="true"></i>
+<img class="how-pos4 pointer-none" src="images/icons/icon-email.png" alt="ICON">
 </div>
-
-<div class="bor8 m-b-20 how-pos4-parent">
-<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="password" 
-name="password" placeholder="Enter Your Password" maxlength="10" size="10">
-<i class="fa fa-unlock-alt how-pos4 pointer-none iconsedit" aria-hidden="true"></i>
-
+<div class="bor8 m-b-30">
+<textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="msg" placeholder="How Can We Help?"></textarea>
 </div>
-
-<!-- -------------------------------- -->
-<div class="bor8 m-b-20 how-pos4-parent">
-<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" 
-name="name" placeholder="Enter Your Name">
-<i class="fa fa-user how-pos4 pointer-none iconsedit" aria-hidden="true"></i>
-</div>
-
-<div class="bor8 m-b-20 how-pos4-parent">
-<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" 
-name="address" placeholder="Enter Your Address">
-<i class="fa fa-address-book how-pos4 pointer-none iconsedit" aria-hidden="true"></i>
-
-</div>
-
-<div class="bor8 m-b-20 how-pos4-parent">
-<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text"  
-name="phone" placeholder="Enter Your Phone">
-<i class="fa fa-phone-square how-pos4 pointer-none iconsedit" aria-hidden="true"></i>
-</div>
-
-
-<button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" name="sub">
-SignUp
-</button>
+<input type="Submit" value="Send" name="sub" class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
 </form>
 </div>
 <div class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
@@ -100,7 +65,7 @@ SignUp
 Address
 </span>
 <p class="stext-115 cl6 size-213 p-t-18">
-AMMAN, ABDALLAH GOSHEH STREET, RA'ED KHALAF COMPLEX or call us on
+AMMAN, ABDALLAH GOSHEH STREET, RA'ED KHALAF COMPLEX.
 </p>
 </div>
 </div>
@@ -126,7 +91,7 @@ Lets Talk
 Sale Support
 </span>
 <p class="stext-115 cl1 size-213 p-t-18">
-<a href="https://preview.colorlib.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0f6c60617b6e6c7b4f6a776e627f636a216c6062">[sales@azkahd.com]</a>
+<a href="#" class="__cf_email__" data-cfemail="0f6c60617b6e6c7b4f6a776e627f636a216c6062">[sales@azkahd.com]</a>
 </p>
 </div>
 </div>
@@ -134,7 +99,6 @@ Sale Support
 </div>
 </div>
 </section>
-
 <?php
 	include("include/footer.php");
 ?>

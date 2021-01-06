@@ -13,6 +13,8 @@
 <html lang="en">
 <head>
 <title>Products</title>
+
+
 <?php
 	include("include/header.php");
 ?>
